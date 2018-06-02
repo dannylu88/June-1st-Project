@@ -1,0 +1,40 @@
+textarea {
+    font-size: 13pt;
+
+
+}
+
+input[name='fileTitle'] {
+    width: 350px;
+    height:25px;
+    font-size: 11pt;
+ 
+}
+
+button{
+   cursor:pointer;
+   border:none;
+   font-size: 12pt;
+}
+
+.showCode {
+   font-size:11pt;
+   width:550px;
+   height: 250px;
+   border-style: solid;
+   border-width: 2px; 
+
+}
+
+::-webkit-input-placeholder {
+   font-style: italic;
+}
+:-moz-placeholder {
+   font-style: italic;  
+}
+::-moz-placeholder {
+   font-style: italic;  
+}
+:-ms-input-placeholder {  
+   font-style: italic; 
+}
