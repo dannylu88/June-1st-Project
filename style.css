@@ -18,12 +18,37 @@ button{
 }
 
 .showCode {
-   font-size:11pt;
+   font-size:12pt;
    width:550px;
    height: 250px;
    border-style: solid;
    border-width: 2px; 
+   margin:auto;
 
+}
+.userlist{
+    
+    background-color: #f6f6f6;
+    width:400px;
+
+    border: 1px solid #ddd;
+    margin-top: -1px; /* Prevent double borders */
+    background-color: #f6f6f6;
+    padding: 12px;
+    text-decoration: none;
+    font-size: 16px;
+    color: black;
+    display: block;
+    position: sticky;
+    left:420px;
+
+
+
+}
+
+.allData{
+	margin:auto;
+	display:block;
 }
 
 ::-webkit-input-placeholder {

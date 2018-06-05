@@ -5,7 +5,8 @@ $(document).ready(function(){
     let codeFileName = $('.fileTitle').val();
     
     localStorage.setItem(codeFileName, codeValue);
-    //$('.codeField').val('');
+    $('.codeField').val('');
+    $('fileTitle').val('');
     
   });
 
@@ -19,12 +20,12 @@ $(document).ready(function(){
     }
     else{
     let showAllCode = ''
-     Object.keys(localStorage).forEach(function(){
-         let codeFileName = localStorage.key;
-         let codeValue = localStorage.getItem(localStorage.key);
-         showAllCode += `${codeFileName} \n \n ${codeValue}`;
-     });
-     $('.showCode').text(showAllCode);
+     for(let i = 0; i < localStorage.length; i++){
+       let codeFileName = localStorage.key(i);
+       let codeValue = localStorage.getItem(localStorage.key(i));
+       showAllCode += (`Name of Method:  ${codeFileName}\n ${codeValue}\n\n`)
+     }
+     $('.showCode').html(showAllCode.replace(/\n/g, '<br>'));;
     }
   });
 
@@ -34,7 +35,7 @@ $(document).ready(function(){
     if (localStorage[keyRetrieved]){
 
       let codeRetrieved = localStorage.getItem(keyRetrieved);
-      $('.showCode').text(codeRetrieved);
+      $('.showCode').html(codeRetrieved.replace(/\n/g, '<br>'));
     }
     else if(keyRetrieved === ''){
       $('.showCode').text('Make sure you enter something to search')
@@ -42,11 +43,38 @@ $(document).ready(function(){
     else{
       $('.showCode').text('Your search does NOT match any database, please enter another one')
     }
+   });
    
 
-    
-    //$('.showCode').text(codeNameRetrieved);
-  });
+   //the possible list of codenames
+
+   for(let i = 0; i < localStorage.length; i++){
+    let codeFileName = localStorage.key(i)
+    let list = $('<div></div>').text(codeFileName);
+    $('.userlist').append(list)
+   }
+
+    //create keyup event to change possible list
+   $('.search').change(function(){
+       let filter = $(this).val();
+       if(filter){
+          $('.userlist').find("div:not(:contains(" + filter + "))").parent().slideUp();
+          $('.userlist').find("div:contains(" + filter + ")").parent().slideDown();
+       }
+       else{
+        $('.userlist').find($('.userlist')).slideDown();
+       }
+      
+   }).keyup(function(){
+      $(this).change()
+   });
+
+
+
+
+
+
+
 
 
 });
