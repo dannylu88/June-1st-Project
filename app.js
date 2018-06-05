@@ -25,7 +25,7 @@ $(document).ready(function(){
        let codeValue = localStorage.getItem(localStorage.key(i));
        showAllCode += (`Name of Method:  ${codeFileName}\n ${codeValue}\n\n`)
      }
-     $('.showCode').html(showAllCode.replace(/\n/g, '<br>'));;
+     $('.showCode').html(showAllCode);
     }
   });
 
@@ -35,7 +35,7 @@ $(document).ready(function(){
     if (localStorage[keyRetrieved]){
 
       let codeRetrieved = localStorage.getItem(keyRetrieved);
-      $('.showCode').html(codeRetrieved.replace(/\n/g, '<br>'));
+      $('.showCode').html(codeRetrieved);
     }
     else if(keyRetrieved === ''){
       $('.showCode').text('Make sure you enter something to search')
@@ -68,13 +68,6 @@ $(document).ready(function(){
    }).keyup(function(){
       $(this).change()
    });
-
-
-
-
-
-
-
 
 
 });
